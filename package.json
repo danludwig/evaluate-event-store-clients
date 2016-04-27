@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "event-store-client": "0.0.5",
-    "ges-client": "^0.10.0"
+    "ges-client": "^0.10.0",
+    "node-uuid": "^1.4.7"
   },
   "devDependencies": {
     "babel-cli": "^6.7.7",
