@@ -1,6 +1,6 @@
-import EventStoreClient from 'event-store-client'
+const EventStoreClient = require('event-store-client')
 
-export default config => {
+module.exports = config => {
   // Connect to the Event Store
   const options = {
     host: config.eventStore.host,
@@ -26,12 +26,12 @@ export default config => {
       }
   }
   const newEvents = [ newEvent ]
-  // console.log('Writing events to ' + destinationId + '...')
-  // connection.writeEvents(destinationId, EventStoreClient.ExpectedVersion.Any, false, newEvents, null, completed => {
-  //     console.log(`Events written result: ${EventStoreClient.OperationResult.getName(completed.result)}`)
-  //     written = true
-  //     //closeIfDone()
-  // })
+  console.log('Writing events to ' + destinationId + '...')
+  connection.writeEvents(destinationId, EventStoreClient.ExpectedVersion.Any, false, newEvents, null, completed => {
+      console.log(`Events written result: ${EventStoreClient.OperationResult.getName(completed.result)}`)
+      written = true
+      //closeIfDone()
+  })
 
   const onEventAppeared = streamEvent => {
     console.log(streamEvent)

@@ -1,7 +1,8 @@
-import ges from 'ges-client'
-import uuid from 'node-uuid'
+const ges = require('ges-client')
+const uuid = require('node-uuid')
 
-export default config => {
+module.exports = config => {
+
   const connection = ges(), stream = 'intro-events'
   const testEventData = new Buffer(JSON.stringify({
     eventProp1: 'string',

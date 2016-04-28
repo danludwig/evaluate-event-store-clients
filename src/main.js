@@ -1,5 +1,5 @@
-import evaluateEventStoreClient from './evaluate-event-store-client'
-import evaluateGESClient from './evaluate-ges-client'
+const evaluateEventStoreClient = require('./evaluate-event-store-client');
+const evaluateGESClient = require('./evaluate-ges-client');
 
 const message = 'Hello, node server world'
 const start = () => (console.log(message))
@@ -7,7 +7,7 @@ const server = start()
 
 const config = {
   eventStore: {
-    address: '127.0.0.1',
+    host: '192.168.99.100',
     port: 1113,
     credentials: {
       username: 'admin',
@@ -19,4 +19,4 @@ const config = {
 evaluateEventStoreClient(config)
 //evaluateGESClient(config)
 
-export default server
+module.exports = server
